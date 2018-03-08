@@ -11,10 +11,10 @@ contract Vault is VaultInterface {
     }
 
     function withdraw(address token, uint amount) external {
-        connectors[token].withdraw(amount);
+        connectors[token].withdraw(token, amount);
     }
 
     function balanceOf(address token) public returns (uint) {
-        return connectors[token].balance();
+        return connectors[token].balance(token);
     }
 }
