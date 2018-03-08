@@ -5,12 +5,12 @@ import "../Tokens/ERC20.sol";
 
 contract ERC20TokenConnector is TokenConnectorInterface {
 
-    function deposit(ERC20 token, uint amount) {
-        require(token.transferFrom(msg.sender, amount));
-    }
-
     function withdraw(address token, address to, uint amount) external {
         ERC20(token).transfer(to, amount);
+    }
+
+    function deposit(ERC20 token, uint amount) public {
+        require(token.transferFrom(msg.sender, this, amount));
     }
 
     function balance(address token) public view returns (uint) {

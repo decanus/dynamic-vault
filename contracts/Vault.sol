@@ -1,5 +1,6 @@
 pragma solidity ^0.4.18;
 
+import "./VaultInterface.sol";
 import "./Ownership/Ownable.sol";
 import "./Connectors/TokenConnectorInterface.sol";
 
